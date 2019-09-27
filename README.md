@@ -1,2 +1,2 @@
 # sio-web
-Web app for sound it out
+[![Build Status](https://dev.azure.com/sound-it-out/Web%20app/_apis/build/status/sound-it-out.sio-web?branchName=master)](https://dev.azure.com/sound-it-out/Web%20app/_build/latest?definitionId=3&branchName=master)
