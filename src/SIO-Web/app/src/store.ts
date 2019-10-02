@@ -1,20 +1,20 @@
 import Vue from 'vue';
-import Vuex, { ActionContext } from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
 import { DocumentStore } from '@/stores/document/store';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  modules: {
+export default class Store implements StoreOptions<any> {
+  modules = {
     document: new DocumentStore(),
-  },
-  state: {
+  };
 
-  },
-  mutations: {
+  state = {
 
-  },
-  actions: {
+  };
 
-  },
-});
+  mutations =  {
+
+  };
+  actions =  {
+
+  };
+};
