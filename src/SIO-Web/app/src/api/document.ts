@@ -6,8 +6,8 @@ export class DocumentApi extends Api {
     public constructor() {
         super();
     }
-    
-    public getDocumentsAsync() : Promise<Result<UserDocument[]>> {
+
+    public getDocumentsAsync(): Promise<Result<UserDocument[]>> {
         return this.getAsync<UserDocument[]>('v1/document');
     }
 }

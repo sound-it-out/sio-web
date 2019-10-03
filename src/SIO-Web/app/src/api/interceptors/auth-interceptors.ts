@@ -12,7 +12,7 @@ export async function authResponseFailureInterceptor(error: any): Promise<any> {
             error.config.__isRetryRequest = true;
             return axios(error.config);
         } else {
-            
+            // Note(Matt): What do we do here?
         }
     }
 

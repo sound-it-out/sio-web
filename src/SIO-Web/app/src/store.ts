@@ -1,20 +1,22 @@
 import Vue from 'vue';
 import Vuex, { StoreOptions } from 'vuex';
 import { DocumentStore } from '@/stores/document/store';
+import { UserStore } from '@/stores/user/store';
 
 export default class Store implements StoreOptions<any> {
-  modules = {
+  public modules = {
     document: new DocumentStore(),
+    user: new UserStore(),
   };
 
-  state = {
+  public state = {
 
   };
 
-  mutations =  {
+  public mutations =  {
 
   };
-  actions =  {
+  public actions =  {
 
   };
-};
+}
