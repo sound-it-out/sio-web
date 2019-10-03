@@ -10,10 +10,11 @@ export class Actions implements ActionTree<State, any> {
 
     public loadDocumentsAsync = async (context: ActionContext<State, any>) => {
         const documents = await documentApi.getDocumentsAsync();
-        
-        if (documents.isError)
+        if (documents.isError){
             // Note(Matt): What do we do here? Do we log the user out? Do we just assume they have no documents?
-        
-        context.commit('setDocuments', documents.value);
+        }
+        else{
+            context.commit('setDocuments', documents.value);
+        }            
     }
 }
