@@ -1,16 +1,22 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
+import { DocumentStore } from '@/stores/document/store';
+import { UserStore } from '@/stores/user/store';
 
-Vue.use(Vuex);
+export default class Store implements StoreOptions<any> {
+  public modules = {
+    document: new DocumentStore(),
+    user: new UserStore(),
+  };
 
-export default new Vuex.Store({
-  state: {
+  public state = {
 
-  },
-  mutations: {
+  };
 
-  },
-  actions: {
+  public mutations =  {
 
-  },
-});
+  };
+  public actions =  {
+
+  };
+}
