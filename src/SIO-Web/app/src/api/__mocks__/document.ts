@@ -53,26 +53,26 @@ export class DocumentApi extends Api {
                 voice: 'Aws',
                 filename: 'Aws',
                 pricePerCharacter: 0.005,
-                type: TranslationType.Aws
+                type: TranslationType.Aws,
             },
             {
                 voice: 'Azure',
                 filename: 'Azure',
                 pricePerCharacter: 0.005,
-                type: TranslationType.Azure
+                type: TranslationType.Azure,
             },
             {
                 voice: 'Custom',
                 filename: 'Custom',
                 pricePerCharacter: 0.005,
-                type: TranslationType.Custom
+                type: TranslationType.Custom,
             },
             {
                 voice: 'Google',
                 filename: 'Google',
                 pricePerCharacter: 0.005,
-                type: TranslationType.Google
-            }
+                type: TranslationType.Google,
+            },
         ] as TranslationOption[];
 
         return Promise.resolve(Result.ok(translationOptions));
