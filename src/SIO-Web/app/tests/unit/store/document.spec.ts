@@ -1,8 +1,8 @@
 import Vue from 'Vue';
 import Vuex, { Store } from 'Vuex';
 import RootStore from '@/store';
-import { LOAD_DOCUMENTS } from '@/stores/document/actions';
-import { DOCUMENTS } from '@/stores/document/getters';
+import { LOAD_DOCUMENTS, LOAD_TRANSLATION_OPTIONS } from '@/stores/document/actions';
+import { DOCUMENTS, TRANSLATION_OPTIONS } from '@/stores/document/getters';
 
 Vue.use(Vuex);
 
@@ -26,5 +26,14 @@ describe('Document store', async () => {
     it(`Should contain documents after ${LOAD_DOCUMENTS}`, async () => {
         await store.dispatch(LOAD_DOCUMENTS);
         expect(store.getters[DOCUMENTS].length > 0).toBeTruthy();
+    });
+
+    it(`Should not contain translation options before ${LOAD_TRANSLATION_OPTIONS}`, () => {
+        expect(store.getters[TRANSLATION_OPTIONS]).toBeNull();
+    });
+
+    it(`Should contain translation options after ${LOAD_TRANSLATION_OPTIONS}`, async () => {
+        await store.dispatch(LOAD_TRANSLATION_OPTIONS);
+        expect(store.getters[TRANSLATION_OPTIONS].length > 0).toBeTruthy();
     });
 });
