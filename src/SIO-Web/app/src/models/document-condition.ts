@@ -3,5 +3,5 @@ export enum DocumentCondition {
     TranslationQueued,
     TranslationStarted,
     TranslationSucceded,
-    TranslationFailed
+    TranslationFailed,
 }

@@ -9,29 +9,29 @@ export abstract class Api {
         axios.interceptors.response.use(defaultResponseInterceptor, authResponseFailureInterceptor);
     }
 
-    protected async getAsync<T>(url: string, data?: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> { 
+    protected async getAsync<T>(url: string, data?: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
         const response = await axios.get<T>(this.buildUrl(url), this.buildConfig(cancellationToken, data));
 
         if (!this.requestSuccessful(url, response)) {
-           return this.error('Some error message');
+           return Result.error('Some error message');
         }
-    
-        return this.ok(response.data)
+
+        return Result.ok(response.data);
     }
-    
+
     protected async postAsync<T>(url: string, data: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
         const response = await axios.post(this.buildUrl(url), data, this.buildConfig(cancellationToken));
 
 
         if (!this.requestSuccessful(url, response)) {
-            return this.error('Some error message');
+            return Result.error('Some error message');
         }
 
         if (response.headers.location) {
-            return this.ok(response.headers.location);
+            return Result.ok(response.headers.location);
         }
 
-        return this.ok(response.data);
+        return Result.ok(response.data);
     }
 
     protected async postFileAsync<T>(url: string, data: File, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
@@ -43,16 +43,15 @@ export abstract class Api {
 
         const response = await axios.post(this.buildUrl(url), formData, this.buildConfig(cancellationToken));
 
-
         if (!this.requestSuccessful(url, response)) {
-            return this.error('Some error message');
+            return Result.error('Some error message');
         }
 
         if (response.headers.location) {
-            return this.ok(response.headers.location);
+            return Result.ok(response.headers.location);
         }
 
-        return this.ok(response.data);
+        return Result.ok(response.data);
     }
 
     protected async putAsync<T>(url: string, data: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
@@ -60,14 +59,14 @@ export abstract class Api {
 
 
         if (!this.requestSuccessful(url, response)) {
-            return this.error('Some error message');
+            return Result.error('Some error message');
         }
 
         if (response.headers.location) {
-            return this.ok(response.headers.location);
+            return Result.ok(response.headers.location);
         }
 
-        return this.ok(response.data);
+        return Result.ok(response.data);
     }
 
     protected async deleteAsync<T>(url: string, data: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
@@ -75,14 +74,14 @@ export abstract class Api {
 
 
         if (!this.requestSuccessful(url, response)) {
-            return this.error('Some error message');
+            return Result.error('Some error message');
         }
 
         if (response.headers.location) {
-            return this.ok(response.headers.location);
+            return Result.ok(response.headers.location);
         }
 
-        return this.ok(response.data);
+        return Result.ok(response.data);
     }
 
     protected buildUrl(url: string): string {
@@ -111,18 +110,6 @@ export abstract class Api {
         };
 
         return config;
-    }
-
-    private ok<T>(data: any): Result<T> {
-        let result = new Result<T>();
-        result.value = data as T;
-        return result;
-    } 
-
-    private error<T>(error: string): Result<T> {
-        let result = new Result<T>();
-        result.error = error;
-        return result;
     }
 
     private requestSuccessful(url: string, response: any): boolean {
