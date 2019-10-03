@@ -1,6 +1,8 @@
 import Vue from 'Vue';
 import Vuex, { Store } from 'Vuex';
 import RootStore from '@/store';
+import { LOAD_DOCUMENTS } from '@/stores/document/actions';
+import { DOCUMENTS } from '@/stores/document/getters';
 
 Vue.use(Vuex);
 
@@ -11,20 +13,18 @@ describe('Document store', async () => {
 
     beforeEach(() => {
         store = new Vuex.Store(new RootStore());
-    })
+    });
 
     it('Should exist', () => {
-        //@ts-ignore
-        expect(store.state.document != null).toBeTruthy();   
+        expect(store.state.document != null).toBeTruthy();
     });
 
-    it('Should not contain documents before loadDocumentsAsync', () => {
-        //@ts-ignore
-        expect(store.state.document.documents).toBeNull();   
+    it(`Should not contain documents before ${LOAD_DOCUMENTS}`, () => {
+        expect(store.getters[DOCUMENTS]).toBeNull();
     });
 
-    it('Should contain documents after loadDocumentsAsync', async () => {
-        await store.dispatch('document/loadDocumentsAsync');
-        expect(store.state.document.documents.length > 0).toBeTruthy();   
+    it(`Should contain documents after ${LOAD_DOCUMENTS}`, async () => {
+        await store.dispatch(LOAD_DOCUMENTS);
+        expect(store.getters[DOCUMENTS].length > 0).toBeTruthy();
     });
 });
