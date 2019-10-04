@@ -9,9 +9,11 @@ import Store from './store';
 import './registerServiceWorker';
 import '@/assets/scss/app.scss';
 import { LOAD_ME } from '@/stores/user/actions'
+import loader from '@/plugins/loader';
 
 Vue.use(Vuex);
 Vue.use(BootstrapVue);
+Vue.use(loader);
 
 Vue.config.productionTip = false;
 
