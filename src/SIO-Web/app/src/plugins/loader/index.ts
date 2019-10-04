@@ -21,8 +21,10 @@ export const loaderProgramatic = {
         this.loader!.show();
     },
     hide() {
-        //@ts-ignore
-        this.loader!.hide();
+        if (this.loader !== null) {
+            //@ts-ignore
+            this.loader!.hide();
+        }
     }
 }
 
