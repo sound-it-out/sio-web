@@ -2,18 +2,15 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import * as Sentry from '@sentry/browser';
 import * as Integrations from '@sentry/integrations';
-import BootstrapVue from 'bootstrap-vue';
 import App from './App.vue';
 import router from './router';
 import Store from './store';
 import './registerServiceWorker';
 import '@/assets/scss/app.scss';
 import { LOAD_ME } from '@/stores/user/actions';
-import loader from '@/plugins/loader';
+import plugins from '@/plugins';
 
-Vue.use(Vuex);
-Vue.use(BootstrapVue);
-Vue.use(loader);
+Vue.use(plugins);
 
 Vue.config.productionTip = false;
 

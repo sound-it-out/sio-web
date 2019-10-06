@@ -1,7 +1,6 @@
 <template>
 <AuthorizedLayout>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <button @click="show">show</button>
     <button @click="hide">hide</button>
   </div>

@@ -1,6 +1,6 @@
 <template>
     <transition>
-        <div class="loading-overlay show" v-if="active">
+        <div class="loading-overlay" v-if="active">
             <div class="loading-background" />
             <div class="loading-icon" />
             <div class="loading-content">

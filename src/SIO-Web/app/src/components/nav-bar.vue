@@ -1,7 +1,9 @@
 <template>
-  <b-navbar type="dark" variant="dark">
-    <b-navbar-nav>
-      <b-nav-item href="#">Home</b-nav-item>
+  <b-navbar id="top-nav" type="light" variant="light">
+    <b-navbar-nav class="w-100">
+      <router-link id="logo" class="navbar-brand col-sm-3 col-md-2 mr-0 text-left" :to="{ name: 'home' }">
+        <img src="../assets/img/logo.svg" alt=""/>
+      </router-link>
 
       <b-nav-item-dropdown text="User" right>
         <b-dropdown-item href="#">Account</b-dropdown-item>
