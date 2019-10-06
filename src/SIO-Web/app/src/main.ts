@@ -8,7 +8,7 @@ import router from './router';
 import Store from './store';
 import './registerServiceWorker';
 import '@/assets/scss/app.scss';
-import { LOAD_ME } from '@/stores/user/actions'
+import { LOAD_ME } from '@/stores/user/actions';
 import loader from '@/plugins/loader';
 
 Vue.use(Vuex);
@@ -27,7 +27,7 @@ Sentry.init({
 
 
 async function start(): Promise<void> {
-  
+
   // Load user information before page load
   await store.dispatch(LOAD_ME);
 

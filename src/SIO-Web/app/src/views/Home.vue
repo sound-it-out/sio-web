@@ -1,18 +1,28 @@
 <template>
+<AuthorizedLayout>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <button @click="show">show</button>
+    <button @click="hide">hide</button>
   </div>
+</AuthorizedLayout>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import AuthorizedLayout from '@/layouts/authorized.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    AuthorizedLayout,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  public show() {
+    this.$loader.show();
+  }
+  public hide() {
+    this.$loader.hide();
+  }
+}
 </script>

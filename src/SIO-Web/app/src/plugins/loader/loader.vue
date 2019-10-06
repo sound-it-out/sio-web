@@ -1,6 +1,6 @@
 <template>
-    <transition :name="animation">
-        <div class="loading-overlay show" :class="{ 'is-fullscreen': isFullscreen }" v-if="active">
+    <transition>
+        <div class="loading-overlay show" v-if="active">
             <div class="loading-background" />
             <div class="loading-icon" />
             <div class="loading-content">
@@ -24,6 +24,11 @@ export default class Loader extends Vue {
 
     public hide(): void {
         this.active = false;
+    }
+
+    private mounted() {
+        const body = document.querySelector('body');
+        body!.appendChild(this.$el);
     }
 }
 </script>
