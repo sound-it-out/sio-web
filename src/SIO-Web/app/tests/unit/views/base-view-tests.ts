@@ -61,9 +61,9 @@ export class BaseViewTests<T extends Vue> {
             it('should be rendered after show has been called', () => {
                 view!.vm.$loader.show();
                 view!.vm.$nextTick(() => {
-                    //@ts-ignore
+                    // @ts-ignore
                     expect(document.querySelector('.loading-overlay').__vue__ !== null).toBeTruthy();
-                })
+                });
             });
 
             it('should not be rendered after hide has been called', () => {
@@ -71,9 +71,9 @@ export class BaseViewTests<T extends Vue> {
                 view!.vm.$loader.hide();
 
                 view!.vm.$nextTick(() => {
-                    //@ts-ignore
+                    // @ts-ignore
                     expect(document.querySelector('.loading-overlay').__vue__ === null).toBeTruthy();
-                })
+                });
             });
         });
     }
