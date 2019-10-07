@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Vuex, { StoreOptions } from 'vuex';
+import { StoreOptions } from 'vuex';
 import { DocumentStore } from '@/stores/document/store';
 import { UserStore } from '@/stores/user/store';
 

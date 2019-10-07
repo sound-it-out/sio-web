@@ -1,4 +1,4 @@
-import { UserManager, User } from 'oidc-client';
+import { UserManager } from 'oidc-client';
 import configuration from '@/services/user-manager/user-manager-settings';
 
 const userManager = new UserManager(configuration);

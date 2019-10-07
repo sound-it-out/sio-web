@@ -1,2 +1,6 @@
 # sio-web
 [![Build Status](https://dev.azure.com/sound-it-out/Web%20app/_apis/build/status/sound-it-out.sio-web?branchName=master)](https://dev.azure.com/sound-it-out/Web%20app/_build/latest?definitionId=3&branchName=master)
+
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/sound-it-out/sio-web.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sound-it-out/sio-web/alerts/)
+
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sound-it-out/sio-web.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sound-it-out/sio-web/context:javascript)
