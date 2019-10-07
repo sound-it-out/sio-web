@@ -85,7 +85,6 @@ export abstract class Api {
     }
 
     protected buildUrl(url: string): string {
-        const location = window.location;
         let base = `${process.env.VUE_APP_API_URL}`;
 
         if (!base.endsWith('/')) {
