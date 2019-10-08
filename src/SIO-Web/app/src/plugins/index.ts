@@ -11,6 +11,4 @@ const plugin: PluginObject<any> = {
     },
 };
 
-Vue.use(plugin);
-
 export default plugin;

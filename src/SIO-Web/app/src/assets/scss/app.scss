@@ -1,3 +1,9 @@
+$sio-green: #00b700;
+$theme-colors: (
+  "primary": $sio-green
+);
+
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-vue/src/index.scss';
 @import './nav';
+@import './common';
