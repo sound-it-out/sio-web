@@ -1,15 +1,20 @@
 <template>
-  <b-navbar id="top-nav" type="light" variant="light">
-    <b-navbar-nav class="w-100">
-      <router-link id="logo" class="navbar-brand col-sm-3 col-md-2 mr-0 text-left" :to="{ name: 'home' }">
-        <img src="../assets/img/logo.svg" alt=""/>
-      </router-link>
-
-      <b-nav-item-dropdown text="User" right>
-        <b-dropdown-item href="#">Account</b-dropdown-item>
-        <b-dropdown-item href="#">Settings</b-dropdown-item>
-      </b-nav-item-dropdown>
-    </b-navbar-nav>
+  <b-navbar id="top-nav" toggleable="md" type="primary" variant="primary" class="shadow-sm">
+    <b-navbar-brand id="logo" href="#" :to="{ name: 'home'}">
+      <img src="../assets/img/logo.svg" alt=""/> <span class="ml-2 text-white">Sound It Out</span>
+    </b-navbar-brand>
+    <b-navbar-toggle target="top-nav" />
+    <b-collapse is-nav id="top-nav">
+        <b-navbar-nav class="mr-auto">             
+        </b-navbar-nav>
+        <b-navbar-nav class="my-2 my-md-0">
+            <b-nav-item-dropdown right class="d-none d-md-block" no-caret>
+                <template slot="button-content"><i class="fas fa-user-circle fa-2x text-white"></i></template>
+                <b-dropdown-item href="#">Account</b-dropdown-item>
+                <b-dropdown-item href="#">Logout</b-dropdown-item>
+            </b-nav-item-dropdown>
+        </b-navbar-nav>
+    </b-collapse>
   </b-navbar>
 </template>
 

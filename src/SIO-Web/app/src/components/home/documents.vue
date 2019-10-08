@@ -1,14 +1,23 @@
 <template>
     <b-row v-if="documents != null && documents.length > 0">
-        <b-col md="6" lg="4" class="mb-2 document" v-for="document in documents" :key="document.id">
-            <b-card>
-                <b-row>
-                    <b-col class="text-left">
-                        {{ document.filename }} 
-                        <b-badge variant="info">Voice-1</b-badge>
-                    </b-col>
-                    <b-col cols="2" class="text-right"><i class="far fa-play-circle fa-2x cursor-pointer"></i></b-col>
-                </b-row>
+        <b-col md="6" lg="4" class="mb-3 document" v-for="document in documents" :key="document.id">
+            <b-card no-body>
+                <b-list-group flush>
+                    <b-list-group-item>
+                        <b-col class="text-center"><i class="far fa-play-circle fa-4x cursor-pointer text-primary"></i></b-col>
+                    </b-list-group-item>
+                    <b-list-group-item>
+                        <b-row>
+                            <b-col>
+                                {{ document.filename }}
+                            </b-col>
+                            <b-col class="text-right">
+                                <b-button class="mr-2" variant="primary"><i class="fas fa-file-download"></i></b-button>
+                                <b-button variant="primary"><i class="fas fa-file-audio"></i></b-button>
+                            </b-col>
+                        </b-row>
+                    </b-list-group-item>
+                </b-list-group>
             </b-card>
         </b-col>
     </b-row>

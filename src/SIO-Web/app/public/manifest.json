@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "sound it out",
+  "short_name": "sio",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
