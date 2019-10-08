@@ -9,19 +9,13 @@ class DocumentsComponentTest extends BaseViewTests<Documents> {
     }
 
     public Execute() {
-        super.Execute();
-
         describe('documents component', () => {
             let component: Wrapper<Documents> | null = null;
 
             beforeEach(() => {
                 component = this.createInstance();
             });
-
-            it('Should load documents', () => {
-
-            });
-        })
+        });
     }
 }
 

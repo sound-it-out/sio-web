@@ -15,7 +15,7 @@ export class BaseViewTests<T extends Vue> {
 
     protected createInstance() {
         const localVue = createLocalVue();
-        
+
         localVue.use(VueRouter);
         localVue.use(plugins);
 
@@ -23,7 +23,7 @@ export class BaseViewTests<T extends Vue> {
         return mount(this.view, {
             localVue,
             router,
-            store
+            store,
         });
     }
 

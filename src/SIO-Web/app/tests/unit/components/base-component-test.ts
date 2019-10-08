@@ -17,7 +17,7 @@ export class BaseViewTests<T extends Vue> {
 
     protected createInstance() {
         const localVue = createLocalVue();
-        
+
         localVue.use(VueRouter);
         localVue.use(plugins);
 
@@ -25,11 +25,9 @@ export class BaseViewTests<T extends Vue> {
         const mountConfig = {
             localVue,
             router,
-            store
+            store,
         };
 
         return this.isShallow ? shallowMount(this.view, mountConfig) : mount(this.view, mountConfig);
     }
-
-    protected Execute() {}
 }
