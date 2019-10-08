@@ -1,5 +1,5 @@
 import { RouteConfig } from 'vue-router';
-import Home from '@/views/homee.vue';
+import Home from '@/views/home.vue';
 import Dcouments from '@/components/home/documents.vue';
 
 const documents: RouteConfig = {
