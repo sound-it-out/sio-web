@@ -2,12 +2,13 @@ import Documents from '@/components/home/documents.vue';
 import { BaseViewTests } from '../base-component-test';
 import { Wrapper } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
+import { UserDocument } from '@/models/user-document';
 
 jest.mock('@/api/document');
 
 class DocumentsComponentTest extends BaseViewTests<Documents> {
     constructor() {
-        super(Documents, true);        
+        super(Documents, true);
     }
 
     public Execute() {
@@ -21,14 +22,16 @@ class DocumentsComponentTest extends BaseViewTests<Documents> {
 
             it('Should load documents', () => {
                 // @ts-ignore
-                const documents = component!.vm.documents;
+                const documents: UserDocument[] = component!.vm.documents;
+                expect(documents != null).toBeTruthy();
                 expect(documents.length).toBeGreaterThan(0);
             });
 
             it('Should render all documents', () => {
                 // @ts-ignore
-                const documents = component!.vm.documents;
+                const documents: UserDocument[] = component!.vm.documents;
                 const documentElements = component!.findAll('.document');
+                expect(documents != null).toBeTruthy();
                 expect(documentElements).toHaveLength(documents.length);
             });
         });
