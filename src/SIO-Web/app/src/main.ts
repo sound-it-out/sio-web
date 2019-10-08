@@ -5,10 +5,10 @@ import * as Integrations from '@sentry/integrations';
 import App from './App.vue';
 import router from './router';
 import Store from './store';
-import './registerServiceWorker';
-import '@/assets/scss/app.scss';
-import { LOAD_ME } from '@/stores/user/actions';
 import plugins from '@/plugins';
+import { LOAD_ME } from '@/stores/user/actions';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@/assets/scss/app.scss';
 
 Vue.use(plugins);
 

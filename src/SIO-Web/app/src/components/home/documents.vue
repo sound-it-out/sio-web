@@ -1,7 +1,15 @@
 <template>
     <b-row v-if="documents != null && documents.length > 0">
-        <b-col md="6" v-for="document in documents" :key="document.id">
-            {{ document.filename }}
+        <b-col md="6" lg="4" class="mb-2 document" v-for="document in documents" :key="document.id">
+            <b-card>
+                <b-row>
+                    <b-col class="text-left">
+                        {{ document.filename }} 
+                        <b-badge variant="info">Voice-1</b-badge>
+                    </b-col>
+                    <b-col cols="2" class="text-right"><i class="far fa-play-circle fa-2x cursor-pointer"></i></b-col>
+                </b-row>
+            </b-card>
         </b-col>
     </b-row>
 </template>
