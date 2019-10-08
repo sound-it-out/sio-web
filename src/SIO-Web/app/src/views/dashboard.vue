@@ -1,9 +1,6 @@
 <template>
 <AuthorizedLayout>
-  <div class="home">
-    <button @click="show">show</button>
-    <button @click="hide">hide</button>
-  </div>
+  <router-view />
 </AuthorizedLayout>
 </template>
 
@@ -16,12 +13,5 @@ import AuthorizedLayout from '@/layouts/authorized.vue';
     AuthorizedLayout,
   },
 })
-export default class Home extends Vue {
-  public show() {
-    this.$loader.show();
-  }
-  public hide() {
-    this.$loader.hide();
-  }
-}
+export default class Home extends Vue {}
 </script>
