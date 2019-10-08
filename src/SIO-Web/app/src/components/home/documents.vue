@@ -1,7 +1,7 @@
 <template>
     <b-row v-if="documents != null && documents.length > 0">
         <b-col md="6" v-for="document in documents" :key="document.id">
-            {{ filename }}
+            {{ document.filename }}
         </b-col>
     </b-row>
 </template>

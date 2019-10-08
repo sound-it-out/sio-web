@@ -118,6 +118,10 @@ export abstract class Api {
             return true;
         }
 
+        if (response.response === undefined) {
+            return false;
+        }
+
         if (response.response.status === 403) {
             return false;
         }

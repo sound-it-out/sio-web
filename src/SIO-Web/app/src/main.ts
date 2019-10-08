@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 const store = new Vuex.Store(new Store());
 
 Sentry.init({
-  environment: process.env.SENTRY_ENVIRONMENT,
+  environment: process.env.VUE_APP_SENTRY_ENVIRONMENT,
   dsn: 'https://d062d842a1274a65b7bd9479ce74b1b6@sentry.io/1758158',
   integrations: [new Integrations.Vue({Vue, attachProps: true})],
 });

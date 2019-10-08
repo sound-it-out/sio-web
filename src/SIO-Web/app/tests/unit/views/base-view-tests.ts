@@ -1,26 +1,29 @@
-import { shallowMount, createLocalVue, Wrapper, VueClass, mount } from '@vue/test-utils';
+import { createLocalVue, Wrapper, VueClass, mount } from '@vue/test-utils';
 import router from '@/router';
 import VueRouter from 'vue-router';
 import Vue from 'Vue';
 import plugins from '@/plugins';
+import Vuex from 'vuex';
+import Store from '@/store';
 
 export class BaseViewTests<T extends Vue> {
     protected view: VueClass<T>;
-    protected name: string;
 
     constructor(view: VueClass<T>) {
         this.view = view;
-        this.name = view.name.toLowerCase();
     }
 
     protected createInstance() {
         const localVue = createLocalVue();
+        
         localVue.use(VueRouter);
         localVue.use(plugins);
 
+        const store = new Vuex.Store(new Store());
         return mount(this.view, {
             localVue,
             router,
+            store
         });
     }
 
@@ -43,7 +46,7 @@ export class BaseViewTests<T extends Vue> {
             test('logo should navigate to home', () => {
                 const logo = view!.find('#logo');
                 logo.trigger('click');
-                expect(view!.vm.$route.name).toBe(this.name);
+                expect(view!.vm.$route.name).toBe('documents');
             });
         });
 

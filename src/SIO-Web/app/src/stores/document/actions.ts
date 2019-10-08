@@ -1,6 +1,6 @@
 import { ActionTree, ActionContext } from 'vuex';
 import { State } from '@/stores/document/state';
-import { DocumentApi } from '@/api/__mocks__/document';
+import { DocumentApi } from '@/api/document';
 
 const documentApi = new DocumentApi();
 
