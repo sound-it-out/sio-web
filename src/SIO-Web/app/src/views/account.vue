@@ -3,8 +3,8 @@
   <b-row>
     <b-col md="3">
       <b-list-group>
-        <b-list-group-item :to="{ name: 'profile'}">Profile</b-list-group-item>
-        <b-list-group-item :to="{ name: 'transactions'}">Transactions</b-list-group-item>
+        <b-list-group-item active-class="active" :to="{ name: 'profile'}">Profile</b-list-group-item>
+        <b-list-group-item active-class="active" :to="{ name: 'transactions'}">Transactions</b-list-group-item>
       </b-list-group>
     </b-col>
     <b-col>

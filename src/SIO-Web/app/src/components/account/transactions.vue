@@ -1,5 +1,10 @@
 <template>
 <div>
+  <b-row>
+    <b-col>
+      <b-card></b-card>
+    </b-col>
+  </b-row>
 </div>    
 </template>
 
