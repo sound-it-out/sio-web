@@ -1,7 +1,7 @@
 <template>
 <div>
     <b-row>
-        <b-col lg="8">
+        <b-col lg="8" class="mb-4">
             <b-card>
                 <b-form>
                     <b-form-group label="Firstname">
@@ -16,7 +16,7 @@
                 </b-form>
             </b-card>
         </b-col>
-        <b-col lg="4" class="text-center">
+        <b-col lg="4" class="text-center mb-4">
             <b-card>
                 <i class="fas fa-user-circle fa-10x text-primary"></i>
             </b-card>
