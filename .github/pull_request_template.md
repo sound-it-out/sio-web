@@ -1,4 +1,4 @@
-### What is the name of the feature?
+### What type of PR is this, Bugfix, Feature, etc...?
 
 ### What was the previous behaviour?
 
