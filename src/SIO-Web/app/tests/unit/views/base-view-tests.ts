@@ -48,6 +48,20 @@ export class BaseViewTests<T extends Vue> {
                 logo.trigger('click');
                 expect(view!.vm.$route.name).toBe('documents');
             });
+
+            it('Should have a user dropdown', () => {
+                expect(view!.find('#user-dropdown') !== null).toBeTruthy();
+            });
+
+            it('Should have a user dropdown that contains logout link', () => {
+                const logoutOption = view!.find('#user-dropdown #logout-option');
+                expect(logoutOption !== null).toBeTruthy();
+            });
+
+            it('Should have a user dropdown that contains account link', () => {
+                const accountOption = view!.find('#user-dropdown #account-option');
+                expect(accountOption !== null).toBeTruthy();
+            });
         });
 
         describe(`loader`, () => {
