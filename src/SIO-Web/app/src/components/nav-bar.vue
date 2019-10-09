@@ -10,7 +10,7 @@
         <b-navbar-nav class="my-2 my-md-0">
             <b-nav-item-dropdown id="user-dropdown" right class="d-none d-md-block" no-caret>
                 <template slot="button-content"><i class="fas fa-user-circle fa-2x text-white"></i></template>
-                <b-dropdown-item id="account-option" href="#">Account</b-dropdown-item>
+                <b-dropdown-item :to="{ name: 'account'}" id="account-option" href="#">Account</b-dropdown-item>
                 <b-dropdown-item id="logout-option" href="#">Logout</b-dropdown-item>
             </b-nav-item-dropdown>
         </b-navbar-nav>
