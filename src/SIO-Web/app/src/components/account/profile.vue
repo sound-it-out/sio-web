@@ -2,7 +2,7 @@
 <div>
     <b-row>
         <b-col lg="8" class="mb-4">
-            <b-card>
+            <b-card class="shadow-sm">
                 <b-form>
                     <b-form-group label="Firstname">
                         <b-form-input placeholder="Firstname" :value="user.firstName"></b-form-input>
@@ -17,7 +17,7 @@
             </b-card>
         </b-col>
         <b-col lg="4" class="text-center mb-4">
-            <b-card>
+            <b-card class="shadow-sm">
                 <i class="fas fa-user-circle fa-10x text-primary"></i>
             </b-card>
         </b-col>

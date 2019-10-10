@@ -3,6 +3,8 @@ $theme-colors: (
   "primary": $sio-green
 );
 
+$enable-rounded: true;
+
 @import 'bootstrap/scss/bootstrap.scss';
 @import 'bootstrap-vue/src/index.scss';
 @import './nav';

@@ -1,26 +1,55 @@
 <template>
-    <b-row v-if="documents != null && documents.length > 0">
-        <b-col md="6" lg="4" class="mb-3 document" v-for="document in documents" :key="document.id">
-            <b-card no-body>
-                <b-list-group flush>
-                    <b-list-group-item>
-                        <b-col class="text-center"><i class="far fa-play-circle fa-4x cursor-pointer text-primary"></i></b-col>
-                    </b-list-group-item>
-                    <b-list-group-item>
-                        <b-row>
-                            <b-col>
-                                {{ document.filename }}
-                            </b-col>
-                            <b-col class="text-right">
-                                <b-button class="mr-2" variant="primary"><i class="fas fa-file-download"></i></b-button>
-                                <b-button variant="primary"><i class="fas fa-file-audio"></i></b-button>
-                            </b-col>
-                        </b-row>
-                    </b-list-group-item>
-                </b-list-group>
+<div>
+    <b-row>
+        <b-col>
+            <b-card class="mb-4">
+                <b-form>
+                    <b-form-input placeholder="Search..."></b-form-input>
+                </b-form>  
             </b-card>
         </b-col>
     </b-row>
+    <b-row>
+        <b-col md="4" lg="3">
+            <b-card class="mb-4">
+                <b-row class="mb-2">
+                    <b-col>
+                        <b-button block variant="danger">Delete</b-button>
+                    </b-col>
+                </b-row>       
+                <b-row>
+                    <b-col>
+                        <b-button block variant="primary">Upload</b-button>
+                    </b-col>
+                </b-row>
+            </b-card>
+        </b-col>
+        <b-col>
+            <b-row v-if="documents != null && documents.length > 0">
+                <b-col lg="6" class="mb-4 document" v-for="document in documents" :key="document.id">
+                    <b-card no-body class="shadow-sm">
+                        <b-list-group flush>
+                            <b-list-group-item class="bg-primary">
+                                <b-col class="text-center"><i class="far fa-play-circle fa-4x cursor-pointer text-white"></i></b-col>
+                            </b-list-group-item>
+                            <b-list-group-item>
+                                <b-row>
+                                    <b-col>
+                                        {{ document.filename }}
+                                    </b-col>
+                                    <b-col class="text-right">
+                                        <b-button class="mr-2" variant="primary"><i class="fas fa-file-download"></i></b-button>
+                                        <b-button variant="primary"><i class="fas fa-file-audio"></i></b-button>
+                                    </b-col>
+                                </b-row>
+                            </b-list-group-item>
+                        </b-list-group>
+                    </b-card>
+                </b-col>
+            </b-row>
+        </b-col>
+    </b-row>
+</div>
 </template>
 
 <script lang="ts">

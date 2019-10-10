@@ -2,25 +2,16 @@
 <div>
   <b-row>
     <b-col>
-         <b-list-group>
-          <b-list-group-item :class="{ 'mb-4' : index != transactions.length -1 }" v-for="(transaction, index) in transactions" :key="transaction.id">
+          <b-card class="shadow-sm" :class="{ 'mb-4' : index != transactions.length -1 }" v-for="(transaction, index) in transactions" :key="transaction.id">
             <b-row>
               <b-col>
-                <h4 class="text-primary">#{{ transaction.displayId }}</h4>
+                <h4>#{{ transaction.displayId }}</h4>
               </b-col>
               <b-col class="text-right">
-                {{ transaction.date }}
+                {{ transaction.date.toDateString() }}
               </b-col>
             </b-row>
-            <b-row>
-              <b-col>
-                <span><strong>Price:</strong> £{{ transaction.price }}</span>
-                <span class="ml-2"><strong>Tokens:</strong>{{ transaction.characterTokens }} </span>
-                
-              </b-col>
-            </b-row>
-          </b-list-group-item>
-        </b-list-group>
+          </b-card>
     </b-col>
   </b-row>
 </div>    

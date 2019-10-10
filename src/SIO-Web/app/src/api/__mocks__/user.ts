@@ -46,7 +46,6 @@ export class UserApi extends Api {
                 date: new Date(),
             },
          ] as Transaction[];
-
         return Promise.resolve(Result.ok(transactions));
     }
 }
