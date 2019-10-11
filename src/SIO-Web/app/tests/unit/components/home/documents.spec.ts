@@ -1,14 +1,14 @@
 import Documents from '@/components/home/documents.vue';
-import { BaseViewTests } from '../base-component-test';
+import { ComponentTest } from '../component-test';
 import { Wrapper } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
 import { UserDocument } from '@/models/user-document';
-
 jest.mock('@/api/document');
+jest.mock('@/api/user');
 
-class DocumentsComponentTest extends BaseViewTests<Documents> {
+class DocumentsComponentTest extends ComponentTest<Documents> {
     constructor() {
-        super(Documents, true);
+        super(Documents);
     }
 
     public Execute() {
@@ -16,7 +16,7 @@ class DocumentsComponentTest extends BaseViewTests<Documents> {
             let component: Wrapper<Documents> | null = null;
 
             beforeEach(async () => {
-                component = this.createInstance();
+                component = this.createInstance(true);
                 await flushPromises();
             });
 
@@ -25,6 +25,16 @@ class DocumentsComponentTest extends BaseViewTests<Documents> {
                 const documents: UserDocument[] = component!.vm.documents;
                 expect(documents != null).toBeTruthy();
                 expect(documents.length).toBeGreaterThan(0);
+            });
+
+            it('Should render search', () => {
+                const sidebar = component!.find('#document-search');
+                expect(sidebar != null).toBeTruthy();
+            });
+
+            it('Should render sidebar', () => {
+                const sidebar = component!.find('#document-actions');
+                expect(sidebar != null).toBeTruthy();
             });
 
             it('Should render all documents', () => {

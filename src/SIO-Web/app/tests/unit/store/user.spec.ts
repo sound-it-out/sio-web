@@ -1,30 +1,39 @@
-import Vue from 'Vue';
-import Vuex, { Store } from 'Vuex';
-import RootStore from '@/store';
+import { Store } from 'Vuex';
 import { LOAD_ME } from '@/stores/user/actions';
 import { ME } from '@/stores/user/getters';
-
-Vue.use(Vuex);
-
+import { StoreTest } from './store-test';
+jest.mock('@/api/document');
 jest.mock('@/api/user');
 
-describe('User store', async () => {
-    let store: Store<any>;
+class UserStoreTest extends StoreTest {
+    constructor() {
+        super();
+    }
 
-    beforeEach(() => {
-        store = new Vuex.Store(new RootStore());
-    });
+    public execute() {
+        describe('User store', async () => {
+            let store: Store<any>;
 
-    it('Should exist', () => {
-        expect(store.state.user != null).toBeTruthy();
-    });
+            beforeEach(() => {
+                store = this.createInstance();
+            });
 
-    it(`Should not contain me before ${LOAD_ME}`, () => {
-        expect(store.getters[ME]).toBeNull();
-    });
+            it('Should exist', () => {
+                expect(store.state.user != null).toBeTruthy();
+            });
 
-    it(`Should contain me after ${LOAD_ME}`, async () => {
-        await store.dispatch(LOAD_ME);
-        expect(store.getters[ME] != null).toBeTruthy();
-    });
-});
+            it(`Should not contain me before ${LOAD_ME}`, () => {
+                expect(store.getters[ME]).toBeNull();
+            });
+
+            it(`Should contain me after ${LOAD_ME}`, async () => {
+                await store.dispatch(LOAD_ME);
+                expect(store.getters[ME] != null).toBeTruthy();
+            });
+        });
+    }
+}
+
+new UserStoreTest().execute();
+
+

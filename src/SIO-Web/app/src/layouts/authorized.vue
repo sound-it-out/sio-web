@@ -3,7 +3,7 @@
     <navbar />
     <div class="container-fluid">
         <div class="row">
-            <main role="main" class="pt-3 px-4 w-100">
+            <main role="main" class="pt-4 px-4 w-100">
                 <slot />
             </main>
         </div>
