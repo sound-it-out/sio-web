@@ -2,7 +2,7 @@
 <div>
   <b-row>
     <b-col>
-          <b-card class="shadow-sm" :class="{ 'mb-4' : index != transactions.length -1 }" v-for="(transaction, index) in transactions" :key="transaction.id">
+          <b-card class="shadow-sm transaction" :class="{ 'mb-4' : index != transactions.length -1 }" v-for="(transaction, index) in transactions" :key="transaction.id">
             <b-row>
               <b-col>
                 <h4>#{{ transaction.displayId }}</h4>

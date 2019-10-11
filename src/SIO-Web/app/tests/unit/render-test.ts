@@ -6,16 +6,18 @@ import plugins from '@/plugins';
 import Vuex from 'vuex';
 import Store from '@/store';
 
-export class BaseViewTests<T extends Vue> {
+export class RenderTest<T extends Vue> {
     protected view: VueClass<T>;
-    private isShallow: boolean;
 
-    constructor(view: VueClass<T>, isShallow: boolean) {
+    constructor(view: VueClass<T>) {
         this.view = view;
-        this.isShallow = isShallow;
     }
 
-    protected createInstance() {
+    protected createInstance(isShallow?: boolean) {
+        if (isShallow === undefined) {
+            isShallow = false;
+        }
+
         const localVue = createLocalVue();
 
         localVue.use(VueRouter);
@@ -28,6 +30,6 @@ export class BaseViewTests<T extends Vue> {
             store,
         };
 
-        return this.isShallow ? shallowMount(this.view, mountConfig) : mount(this.view, mountConfig);
+        return isShallow ? shallowMount(this.view, mountConfig) : mount(this.view, mountConfig);
     }
 }

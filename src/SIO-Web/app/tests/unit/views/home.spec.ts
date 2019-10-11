@@ -1,10 +1,12 @@
 import Home from '@/views/home.vue';
-import { BaseViewTests } from './base-view-tests';
+import { ViewTests } from './view-test';
 
-class HomeViewTest extends BaseViewTests<Home> {
+jest.mock('@/api/document');
+jest.mock('@/api/user');
+
+class HomeViewTest extends ViewTests<Home> {
     constructor() {
         super(Home);
-        jest.mock('@/api/document');
     }
 
     public Execute() {

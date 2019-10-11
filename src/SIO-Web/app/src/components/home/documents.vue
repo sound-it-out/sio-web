@@ -3,7 +3,7 @@
     <b-row>
         <b-col>
             <b-card class="mb-4">
-                <b-form>
+                <b-form id="document-search">
                     <b-form-input placeholder="Search..."></b-form-input>
                 </b-form>  
             </b-card>
@@ -11,7 +11,7 @@
     </b-row>
     <b-row>
         <b-col md="4" lg="3">
-            <b-card class="mb-4">
+            <b-card id="document-actions" class="mb-4">
                 <b-row class="mb-2">
                     <b-col>
                         <b-button block variant="danger">Delete</b-button>

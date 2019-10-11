@@ -1,32 +1,8 @@
-import { createLocalVue, Wrapper, VueClass, mount } from '@vue/test-utils';
-import router from '@/router';
-import VueRouter from 'vue-router';
+import { Wrapper } from '@vue/test-utils';
 import Vue from 'Vue';
-import plugins from '@/plugins';
-import Vuex from 'vuex';
-import Store from '@/store';
+import { RenderTest } from '../render-test';
 
-export class BaseViewTests<T extends Vue> {
-    protected view: VueClass<T>;
-
-    constructor(view: VueClass<T>) {
-        this.view = view;
-    }
-
-    protected createInstance() {
-        const localVue = createLocalVue();
-
-        localVue.use(VueRouter);
-        localVue.use(plugins);
-
-        const store = new Vuex.Store(new Store());
-        return mount(this.view, {
-            localVue,
-            router,
-            store,
-        });
-    }
-
+export class ViewTests<T extends Vue> extends RenderTest<T> {
     protected Execute() {
         describe(`nav bar`, () => {
             let view: Wrapper<T> | null = null;

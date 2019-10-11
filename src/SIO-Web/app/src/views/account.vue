@@ -2,7 +2,7 @@
 <AuthorizedLayout>
   <b-row>
     <b-col md="4" lg="3"  class="mb-4">
-      <b-list-group class="shadow-sm">
+      <b-list-group class="shadow-sm" id="account-sidebar">
         <b-list-group-item active-class="active" :to="{ name: 'profile'}">Profile</b-list-group-item>
         <b-list-group-item active-class="active" :to="{ name: 'transactions'}">Transactions</b-list-group-item>
       </b-list-group>
