@@ -1,11 +1,9 @@
 import Vue from 'Vue';
 import Vuex from 'Vuex';
 import RootStore from '@/store';
-import { Test } from '../test';
 
-export class StoreTest extends Test {
+export class StoreTest {
     constructor() {
-        super();
         Vue.use(Vuex);
     }
 

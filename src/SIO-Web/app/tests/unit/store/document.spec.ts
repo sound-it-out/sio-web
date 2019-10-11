@@ -2,6 +2,8 @@ import { Store } from 'Vuex';
 import { LOAD_DOCUMENTS, LOAD_TRANSLATION_OPTIONS } from '@/stores/document/actions';
 import { DOCUMENTS, TRANSLATION_OPTIONS } from '@/stores/document/getters';
 import { StoreTest } from './store-test';
+jest.mock('@/api/document');
+jest.mock('@/api/user');
 
 class DocumentStoreTest extends StoreTest {
     constructor() {

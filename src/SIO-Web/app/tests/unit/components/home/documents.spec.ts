@@ -3,6 +3,8 @@ import { ComponentTest } from '../component-test';
 import { Wrapper } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
 import { UserDocument } from '@/models/user-document';
+jest.mock('@/api/document');
+jest.mock('@/api/user');
 
 class DocumentsComponentTest extends ComponentTest<Documents> {
     constructor() {

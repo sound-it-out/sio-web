@@ -5,13 +5,11 @@ import Vue from 'Vue';
 import plugins from '@/plugins';
 import Vuex from 'vuex';
 import Store from '@/store';
-import { Test } from './test';
 
-export class RenderTest<T extends Vue> extends Test {
+export class RenderTest<T extends Vue> {
     protected view: VueClass<T>;
 
     constructor(view: VueClass<T>) {
-        super();
         this.view = view;
     }
 
