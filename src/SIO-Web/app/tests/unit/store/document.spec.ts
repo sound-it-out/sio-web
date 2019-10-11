@@ -3,9 +3,6 @@ import { LOAD_DOCUMENTS, LOAD_TRANSLATION_OPTIONS } from '@/stores/document/acti
 import { DOCUMENTS, TRANSLATION_OPTIONS } from '@/stores/document/getters';
 import { StoreTest } from './store-test';
 
-jest.mock('@/api/document');
-
-
 class DocumentStoreTest extends StoreTest {
     constructor() {
         super();

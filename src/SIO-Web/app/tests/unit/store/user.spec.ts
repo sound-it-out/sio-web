@@ -3,9 +3,6 @@ import { LOAD_ME } from '@/stores/user/actions';
 import { ME } from '@/stores/user/getters';
 import { StoreTest } from './store-test';
 
-jest.mock('@/api/user');
-
-
 class UserStoreTest extends StoreTest {
     constructor() {
         super();

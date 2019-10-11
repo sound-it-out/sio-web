@@ -2,11 +2,7 @@ import Transactions from '@/components/account/transactions.vue';
 import { ComponentTest } from '../component-test';
 import { Wrapper } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
-import { User } from 'oidc-client';
 import { Transaction } from '@/models/transaction';
-
-jest.mock('@/api/document');
-jest.mock('@/api/user');
 
 class DocumentsComponentTest extends ComponentTest<Transactions> {
     constructor() {

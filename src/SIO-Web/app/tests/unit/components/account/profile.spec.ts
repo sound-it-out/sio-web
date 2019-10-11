@@ -2,11 +2,8 @@ import Profile from '@/components/account/profile.vue';
 import { ComponentTest } from '../component-test';
 import { Wrapper } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
-import { User } from 'oidc-client';
+import { User } from '@/models/user';
 import { LOAD_ME } from '@/stores/user/actions';
-
-jest.mock('@/api/document');
-jest.mock('@/api/user');
 
 class DocumentsComponentTest extends ComponentTest<Profile> {
     constructor() {

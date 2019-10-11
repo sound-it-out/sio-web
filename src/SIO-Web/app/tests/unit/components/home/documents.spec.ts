@@ -4,8 +4,6 @@ import { Wrapper } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
 import { UserDocument } from '@/models/user-document';
 
-jest.mock('@/api/document');
-
 class DocumentsComponentTest extends ComponentTest<Documents> {
     constructor() {
         super(Documents);
