@@ -9,10 +9,10 @@ export class UserApi extends Api {
     }
 
     public getMeAsync(): Promise<Result<User>> {
-        return this.getAsync<User>('v1/me');
+        return this.getAsync<User>('v1/user/me');
     }
 
     public getTransactionsAsync(): Promise<Result<Transaction[]>> {
-        return this.getAsync<Transaction[]>('v1/transactions');
+        return this.getAsync<Transaction[]>('v1/user/transactions');
     }
 }

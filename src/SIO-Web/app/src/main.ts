@@ -26,7 +26,7 @@ Sentry.init({
 async function start(): Promise<void> {
 
   // Load user information before page load
-  // await store.dispatch(LOAD_ME);
+  await store.dispatch(LOAD_ME);
 
   new Vue({
     router,
