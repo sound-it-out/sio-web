@@ -16,15 +16,15 @@ router.afterEach((to, from) => {
 });
 
 router.beforeEach(async (to, from, next) => {
-await UserManager.clearStaleState();
-const user = await UserManager.getUser();
-const isLoggedIn = user != null;
-if ((!isLoggedIn || user!.expired) && to.meta.requiresAuthentication) {
+  await UserManager.clearStaleState();
+  const user = await UserManager.getUser();
+  const isLoggedIn = user != null;
+  if ((!isLoggedIn || user!.expired) && to.meta.requiresAuthentication) {
   await UserManager.signinRedirect();
   return;
 }
 
-next();
+  next();
 });
 
 export default router;

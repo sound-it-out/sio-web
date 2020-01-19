@@ -11,7 +11,7 @@
             <b-nav-item-dropdown id="user-dropdown" right class="d-none d-md-block" no-caret>
                 <template slot="button-content"><i class="fas fa-user-circle fa-2x text-white"></i></template>
                 <b-dropdown-item :to="{ name: 'account'}" id="account-option" href="#">Account</b-dropdown-item>
-                <b-dropdown-item id="logout-option" href="#">Logout</b-dropdown-item>
+                <b-dropdown-item id="logout-option" href="#" @click.prevent="logout">Logout</b-dropdown-item>
             </b-nav-item-dropdown>
         </b-navbar-nav>
     </b-collapse>
@@ -22,10 +22,17 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import { User } from '@/models/user';
+import userManager from '@/services/user-manager/user-manager';
 
 const userNamespace = namespace('user');
 
+
+@Component
 export default class NavBar extends Vue {
     @userNamespace.Getter public user!: User | null;
+
+    public async logout(): Promise<void> {
+        await userManager.signoutRedirect();
+    }
 }
 </script>
