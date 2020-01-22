@@ -1,5 +1,23 @@
 <template>
-<div>
+<div class="columns">
+    <div class="column is-one-third">
+        <div class="card">
+            <header class="card-header has-background-primary">
+                <p class="card-header-title has-text-white">
+                filename.ext
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a href="#" class="card-footer-item">Save</a>
+                <a href="#" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item">Delete</a>
+            </footer>
+        </div>
+    </div>
 </div>
 </template>
 

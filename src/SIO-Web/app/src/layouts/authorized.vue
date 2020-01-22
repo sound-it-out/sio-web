@@ -1,13 +1,9 @@
 <template>
 <div>
     <navbar />
-    <div class="container-fluid">
-        <div class="row">
-            <main role="main" class="pt-4 px-4 w-100">
-                <slot />
-            </main>
-        </div>
-    </div>
+    <main role="main" class="has-padding-top-4 has-padding-left-4 w-100">
+        <slot />
+    </main>
 </div>
 </template>
 
