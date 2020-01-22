@@ -11,7 +11,7 @@ export class Actions implements ActionTree<State, any> {
     [key: string]: ((injectee: ActionContext<State, any>, payload: any) => any);
 
     public loadDocumentsAsync = async (context: ActionContext<State, any>) => {
-        const result = await documentApi.getDocumentsAsync();
+        const result = await documentApi.getDocumentsAsync(1, 25);
         if (result.isError) {
             // Note(Matt): What do we do here? Do we log the user out? Do we just assume they have no documents?
         } else {

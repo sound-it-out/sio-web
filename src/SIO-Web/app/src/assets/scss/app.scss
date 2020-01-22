@@ -1,11 +1,4 @@
-$sio-green: #00b700;
-$theme-colors: (
-  "primary": $sio-green
-);
-
-$enable-rounded: true;
-
-@import 'bootstrap/scss/bootstrap.scss';
-@import 'bootstrap-vue/src/index.scss';
-@import './nav';
-@import './common';
+@import "~bulma/sass/utilities/initial-variables";
+@import "utils/_all";
+@import "~buefy/src/scss/buefy-build.scss";
+@import "sio";

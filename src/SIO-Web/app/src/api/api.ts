@@ -19,24 +19,8 @@ export abstract class Api {
         return Result.ok(response.data);
     }
 
-    protected async postAsync<T>(url: string, data: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
-        const response = await axios.post(this.buildUrl(url), data, this.buildConfig(cancellationToken));
-
-
-        if (!this.requestSuccessful(url, response)) {
-            return Result.error('Some error message');
-        }
-
-        if (response.headers.location) {
-            return Result.ok(response.headers.location);
-        }
-
-        return Result.ok(response.data);
-    }
-
-    protected async postFileAsync<T>(url: string, data: File, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
-        const formData: FormData = new FormData();
-        formData.append('file', data);
+    protected async postAsync(url: string, data: any, cancellationToken: CancelToken | null = null): Promise<Result<boolean>> {
+        const formData = this.createFormData(data);
 
         const config = this.buildConfig(cancellationToken);
         config.headers['Content-type'] = 'multipart/form-data';
@@ -48,10 +32,10 @@ export abstract class Api {
         }
 
         if (response.headers.location) {
-            return Result.ok(response.headers.location);
+            return Result.ok(true);
         }
 
-        return Result.ok(response.data);
+        return Result.ok(true);
     }
 
     protected async putAsync<T>(url: string, data: any, cancellationToken: CancelToken | null = null): Promise<Result<T>> {
@@ -109,6 +93,24 @@ export abstract class Api {
         };
 
         return config;
+    }
+
+    private createFormData(object: any, form?: FormData, namespace?: string): FormData {
+        const formData = form || new FormData();
+        for (const property in object) {
+            if (!object.hasOwnProperty(property) || !object[property]) {
+                continue;
+            }
+            const formKey = namespace ? `${namespace}[${property}]` : property;
+            if (object[property] instanceof Date) {
+                formData.append(formKey, object[property].toISOString());
+            } else if (typeof object[property] === 'object' && !(object[property] instanceof File)) {
+                this.createFormData(object[property], formData, formKey);
+            } else {
+                formData.append(formKey, object[property]);
+            }
+        }
+        return formData;
     }
 
     private requestSuccessful(url: string, response: any): boolean {
