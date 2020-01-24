@@ -1,19 +1,19 @@
 <template>
 <div>
     <navbar />
-    <div class="has-padding-4 columns">
-        <div class="column is-one-quarter">
+    <div class="columns">
+        <div class="column is-one-fifth">
             <div class="box">
                 <navsidebar/>
             </div>        
         </div>
-        <div class="column">
+        <div class="column has-padding-4">
             <div class="box">
                 <main role="main">
                     <slot />           
                 </main>
             </div>
-        </div>                
+        </div>        
     </div>    
 </div>
 </template>
@@ -25,7 +25,7 @@ import navsidebar from '@/components/nav-sidebar.vue';
 @Component({
     components: {
         navbar,
-        navsidebar
+        navsidebar,
     },
 })
 export default class AuthorizedLayout extends Vue {}
