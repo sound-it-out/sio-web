@@ -1,13 +1,15 @@
 <template>
 <div>
     <navbar />
-    <div class="container-fluid">
-        <div class="row">
-            <main role="main" class="pt-4 px-4 w-100">
-                <slot />
-            </main>
-        </div>
-    </div>
+    <div class="columns">
+        <div class="column has-padding-4">
+            <div class="box">
+                <main role="main">
+                    <slot />           
+                </main>
+            </div>
+        </div>        
+    </div>    
 </div>
 </template>
 

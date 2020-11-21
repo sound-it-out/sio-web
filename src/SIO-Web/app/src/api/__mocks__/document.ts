@@ -10,36 +10,36 @@ export class DocumentApi extends Api {
         super();
     }
 
-    public getDocumentsAsync(): Promise<Result<UserDocument[]>> {
+    public getDocumentsAsync(page: number, pageSize: number): Promise<Result<UserDocument[]>> {
         const documents = [
             {
                 id: 'Uploaded',
                 condition: DocumentCondition.Uploaded,
-                filename: 'Uploaded',
+                filename: 'Uploaded.txt',
                 version: 1,
             },
             {
                 id: 'TranslationQueued',
                 condition: DocumentCondition.TranslationQueued,
-                filename: 'TranslationQueued',
+                filename: 'TranslationQueued.txt',
                 version: 2,
             },
             {
                 id: 'TranslationStarted',
                 condition: DocumentCondition.TranslationStarted,
-                filename: 'TranslationStarted',
+                filename: 'TranslationStarted.txt',
                 version: 3,
             },
             {
                 id: 'TranslationSucceded',
                 condition: DocumentCondition.TranslationSucceded,
-                filename: 'TranslationSucceded',
+                filename: 'TranslationSucceded.txt',
                 version: 4,
             },
             {
                 id: 'TranslationFailed',
                 condition: DocumentCondition.TranslationFailed,
-                filename: 'TranslationFailed',
+                filename: 'TranslationFailed.txt',
                 version: 4,
             },
         ] as UserDocument[];

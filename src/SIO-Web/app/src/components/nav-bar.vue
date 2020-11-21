@@ -1,31 +1,52 @@
 <template>
-  <b-navbar id="top-nav" toggleable="md" type="primary" variant="primary" class="shadow-sm">
-    <b-navbar-brand id="logo" href="#" :to="{ name: 'home'}">
-      <img src="../assets/img/logo.svg" alt=""/> <span class="ml-2 text-white">Sound It Out</span>
-    </b-navbar-brand>
-    <b-navbar-toggle target="top-nav" />
-    <b-collapse is-nav id="top-nav">
-        <b-navbar-nav class="mr-auto">             
-        </b-navbar-nav>
-        <b-navbar-nav class="my-2 my-md-0">
-            <b-nav-item-dropdown id="user-dropdown" right class="d-none d-md-block" no-caret>
-                <template slot="button-content"><i class="fas fa-user-circle fa-2x text-white"></i></template>
-                <b-dropdown-item :to="{ name: 'account'}" id="account-option" href="#">Account</b-dropdown-item>
-                <b-dropdown-item id="logout-option" href="#">Logout</b-dropdown-item>
-            </b-nav-item-dropdown>
-        </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
+<b-navbar type="is-white" spaced="true" class="has-padding-0">
+        <template slot="brand">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <img src="../assets/img/logo.svg" alt="Sound it out" style="min-height:1rem;">
+            </b-navbar-item>
+        </template>
+
+        <template slot="start">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }" class="has-padding-vertical-4 has-padding-horizontal-5">
+                Documents
+            </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/library' }" class="has-padding-vertical-4 has-padding-horizontal-5">
+                Library
+            </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/orders' }" class="has-padding-vertical-4 has-padding-horizontal-5">
+                Orders
+            </b-navbar-item>
+        </template>
+
+        <template slot="end">
+             <b-navbar-dropdown>
+               <template slot="label"><i class="fas fa-user-circle fa-2x text-white"></i></template>
+                <b-navbar-item href="#" :to="{ name: 'account'}" id="account-option">
+                    About
+                </b-navbar-item>
+                <b-navbar-item id="logout-option" href="#" @click.prevent="logout" >
+                    Logout
+                </b-navbar-item>
+            </b-navbar-dropdown>
+        </template>
+    </b-navbar>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import { User } from '@/models/user';
+import userManager from '@/services/user-manager/user-manager';
 
 const userNamespace = namespace('user');
 
+
+@Component
 export default class NavBar extends Vue {
     @userNamespace.Getter public user!: User | null;
+
+    public async logout(): Promise<void> {
+        await userManager.signoutRedirect();
+    }
 }
 </script>
