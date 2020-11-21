@@ -114,7 +114,7 @@ export abstract class Api {
     }
 
     private requestSuccessful(url: string, response: any): boolean {
-        const hasError = (response && response.request.readyState === 4 && response.request.status === 0) || (response && response.response && (response.response.status < 200 || response.response.status >= 300));
+        const hasError = (response && response.request && response.request.readyState === 4 && response.request.status === 0) || (response && response.response && (response.response.status < 200 || response.response.status >= 300));
 
         if (!hasError) {
             return true;

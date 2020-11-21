@@ -1,8 +1,20 @@
 <template>
-<b-navbar type="is-primary" spaced="true">
+<b-navbar type="is-white" spaced="true" class="has-padding-0">
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
-                <img src="../assets/img/logo.svg" alt="Sound it out" style="min-height:3rem;">
+                <img src="../assets/img/logo.svg" alt="Sound it out" style="min-height:1rem;">
+            </b-navbar-item>
+        </template>
+
+        <template slot="start">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }" class="has-padding-vertical-4 has-padding-horizontal-5">
+                Documents
+            </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/library' }" class="has-padding-vertical-4 has-padding-horizontal-5">
+                Library
+            </b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ path: '/orders' }" class="has-padding-vertical-4 has-padding-horizontal-5">
+                Orders
             </b-navbar-item>
         </template>
 

@@ -5,7 +5,7 @@ const settings: UserManagerSettings = {
     client_id: 'web-client',
     redirect_uri: window.location.origin + '/signed-in.html',
     response_type: 'code',
-    scope: 'openid profile api',
+    scope: 'openid profile',
     post_logout_redirect_uri: window.location.origin,
     automaticSilentRenew: true,
     silent_redirect_uri: window.location.origin + '/sign-in-refresh.html',

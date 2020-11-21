@@ -20,7 +20,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import { UserDocument } from '@/models/user-document';
-import { DocumentApi } from '@/api/__mocks__/document';
+import { DocumentApi } from '@/api/document';
 
 const document = namespace('document');
 const documentApi = new DocumentApi();

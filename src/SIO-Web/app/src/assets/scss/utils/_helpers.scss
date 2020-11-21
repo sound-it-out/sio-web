@@ -95,3 +95,7 @@ $sides: (top, bottom, left, right);
 {
   border-radius: $radius-large !important;
 }
+
+.has-text-grey {
+  color: $grey !important;
+}
